@@ -1,0 +1,11 @@
+CI/CD is a practice used by DevOps teams to introducing more automation into app development, 
+allowing them to deliver apps to customers more quickly and efficiently. 
+In this labI will explain you CICD pipeline along with its stages, benefits and
+ Hands on Project to set up cicd pipeline for React application using Github Actions.
+
+In this GitHub Actions Tutorial we go through the following topics:
+First I explain what GitHub Actions actually is and we will look at specific developer workflow use cases that you can automate with GitHub Actions .
+After that I explain the basic concepts of GitHub Actions, including the GitHub Events and Actions and workflow and HOW GitHub Actions actually 
+automates these workflows using these components.
+Having understood what GitHub Actions solves and how it makes it possible, I will go through the most common workflow, which is CI/CD pipeline.
+I will explain shortly why it is not just another ci/cd tool or what are the benefits of GitHub Actions ci cd pipeline.
