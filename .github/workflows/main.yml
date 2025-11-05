@@ -38,8 +38,7 @@ jobs:
 
       - name: Docker login to Docker Hub
         run: 
-          docker login -u adithkp -p dckr_pat_913Gr3jkHmbeCbUuDSwq3UD22lQ
-
+          docker login -u adithkp -p Ad#20228kp
       - name: Build Docker image
         run: docker build -t adithkp/greeting-react-app .
 
