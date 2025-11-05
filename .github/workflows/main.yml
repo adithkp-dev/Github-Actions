@@ -20,13 +20,13 @@ jobs:
           node-version: '20.x'
 
       - name: Install dependencies
-        run: npm install
+        run: npm ci  # Faster and more reliable than `npm install`
 
       - name: Build React App (Vite)
         run: npm run build
 
       - name: Run tests
-        run: npm run test
+        run: npm test -- --watchAll=false  # Disable interactive mode for CI
 
   docker-build-and-push:
     needs: build-and-test
@@ -36,11 +36,14 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Docker login to Docker Hub
-        run: 
-          docker login -u adithkp -p Ad#20228kp
+      - name: Log in to Docker Hub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+
       - name: Build Docker image
-        run: docker build -t adithkp/greeting-react-app .
+        run: docker build -t adithkp/greeting-react-app:latest .
 
       - name: Push Docker image
-        run: docker push adithkp/greeting-react-app
+        run: docker push adithkp/greeting-react-app:latest
