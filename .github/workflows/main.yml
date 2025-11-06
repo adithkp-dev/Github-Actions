@@ -39,7 +39,7 @@ jobs:
 
       - name: Docker login to Docker Hub
         run: |
-          docker login -u "adithkp" -p "dckr_pat_7DaM2ihwUC83QyCFWtXVKLl5ylA"
+          docker login -u "${{ secrets.DOCKERHUB_USERNAME }}" -p "${{ secrets.DOCKERHUB_TOKEN }}"
 
       - name: Build Docker image
         run: docker build -t "adithkp/greeting-react-app" .
