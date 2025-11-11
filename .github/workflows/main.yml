@@ -39,10 +39,10 @@ jobs:
 
       - name: Docker login to Docker Hub
         run: |
-          docker login -u "adithkp" -p "dckr_pat_rXF71tMjbVhKuJ8aEyLQNa0Ohgw"
+          docker login -u "${{ Docker.DOCKERHUB_USERNAME }}" -p "${{ Docker.DOCKERHUB_TOKEN }}"
 
       - name: Build Docker image
-        run: docker build -t "adithkp/greeting-react-app" .
+        run: docker build -t "${{ Docker.DOCKERHUB_USERNAME }}/greeting-react-app:latest" .
 
       - name: Push Docker image to Docker Hub
-        run: docker push "adithkp/greeting-react-app"      
+        run: docker push "${{ Docker.DOCKERHUB_USERNAME }}/greeting-react-app:latest"      
