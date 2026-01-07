@@ -40,12 +40,12 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      # 🔑 Configure AWS credentials using OIDC
+      # 🔑 Configure AWS credentials using OIDC (São Paulo)
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v2
         with:
-          role-to-assume: arn:aws:iam::274822064527:role/prod-test-role
-          aws-region: ap-south-1
+          role-to-assume: arn:aws:iam::274822064527:role/prod-test
+          aws-region: sa-east-1
 
       # 🔐 Login to Amazon ECR
       - name: Login to Amazon ECR
@@ -56,7 +56,7 @@ jobs:
         run: |
           docker build -t test:latest .
 
-      # 📤 Tag & Push to ECR
+      # 📤 Tag & Push Docker image to ECR (São Paulo)
       - name: Push Docker image to ECR
         run: |
           docker tag test:latest 274822064527.dkr.ecr.sa-east-1.amazonaws.com/test:latest
